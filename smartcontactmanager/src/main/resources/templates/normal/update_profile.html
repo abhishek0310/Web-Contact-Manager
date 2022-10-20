@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="normal/base::layout(~{::section})">
+<head>
+<meta charset="UTF-8" />
+<title>This is profile update page</title>
+</head>
+<body>
+	<section>
+		<div class="card mr-3 ml-3">
+			
+			<div class="card-body">
+			
+			<h1 class="text-center">Update Your Profile</h1>
+			
+			<div class="container-fluid mt-1">
+			
+			<div class="row">
+			
+			<div class="col-md-8 offset-md-2">
+			
+				<form action="#"
+				th:object="${user}"
+				enctype="multipart/form-data"
+				method="POST"
+				th:action="@{/user/profile-update}"
+				class="mt-3"
+				>
+				
+				<input type="hidden" th:value="${user.id}" name="id"/>
+				<!-- Contact Image -->
+				
+				<div class="container text-center">
+					
+					<img style="width: 250px;height:250px;" th:src="@{'/img/'+${user.imageUrl}}" alt="" class="img-fluid my_profile_picture" />
+					
+				</div>
+				
+				<p class="text-secondary text-center">Choose new profile pic</p>
+				<div class="customer-file text-center mt-3">
+				<input type="file" name="UserProfileImage"/>
+				
+				</div>
+				
+				<!--  Name -->
+				
+				<div class="input-group mt-3">
+				
+					<div class="input-group-prepend">
+				
+						<div class="input-group-text">
+						
+							<i class="fa fa-plus"></i>
+				
+						</div>
+				
+					</div>
+						
+						<input th:value="${user.name}" required type="text" id="name" name="name" placeholder="Enter Name here" class="form-control"/>
+				
+				</div>
+				
+				
+				<!-- Email Field -->
+				
+				<div class="input-group mt-3">
+				
+					<div class="input-group-prepend">
+				
+						<div class="input-group-text">
+						
+							@
+				
+						</div>
+				
+					</div>
+						
+						<input th:value="${user.email}" required type="email" id="email" name="email" placeholder="Enter email here" class="form-control"/>
+				
+				</div>
+				
+				<!-- Role Field -->
+				
+				
+				<div class="input-group mt-3">
+				
+					<div class="input-group-prepend">
+				
+						<div class="input-group-text">
+						
+							<i class="fa fa-plus"></i>
+				
+						</div>
+				
+					</div>
+						
+						<input th:value="${user.role}" required type="text" id="role" name="role" placeholder="Enter user role here" class="form-control"/>
+				
+				</div>
+				
+				
+				<!-- About Field -->
+				<div class="input-group mt-3">
+				
+					<div class="input-group-prepend">
+				
+						<div class="input-group-text">
+						
+							<i class="fa fa-briefcase"></i>
+				
+						</div>
+				
+					</div>
+						
+						<input th:value="${user.about}" required type="text" id="about" name="about" placeholder="Enter something about yourself" class="form-control"/>
+				
+				</div>
+				
+				
+				<div class="container text-center mt-3">
+				
+				<button class="btn bg-primary">Save Profile</button>
+				
+				</div>
+				
+				</form>
+			
+			
+			</div>
+			
+			</div>
+			
+			</div>
+			
+			</div>
+		
+		</div>
+	</section>
+
+</body>
+</html>
